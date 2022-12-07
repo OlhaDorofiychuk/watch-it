@@ -1,0 +1,31 @@
+.trending-movies {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  list-style: none;
+}
+.film-card {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  height: fit-content;
+  border: 2px solid slategrey;
+}
+
+.film-card > img {
+  width: 200px;
+  height: 300px;
+  padding: 5px;
+}
+.title {
+  align-self: center;
+  padding: 5px;
+  height: 10%;
+}
+.reactions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  height: fit-content;
+}
