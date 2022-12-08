@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet";
 
 function App() {
   const [trendingMovies, setTrendingMovies] = useState([]);
+  // const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     fetch(

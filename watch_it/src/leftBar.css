@@ -1,14 +1,56 @@
 .list-of-genres {
   list-style: none;
-  text-transform: capitalize;
+  padding-top: 10px;
+  box-shadow: 3px 6px;
   border-radius: 10px;
-  border: solid 2px slategrey;
+  /* border: solid 2px slategrey; */
   cursor: pointer;
   padding: 5px;
+  margin-right: 10px;
+  padding-left: 15px;
 }
 
 .hightLight {
-  background-color: rgba(112, 128, 144, 0.555);
+  border-radius: 5px;
+  background-color: rgb(39, 43, 43);
   display: flex;
   width: 100%;
+  font-weight: 700;
+  color: rgb(134, 138, 143);
+}
+h3 {
+  font-size: larger;
+}
+h3:hover {
+  font-weight: 800;
+}
+
+.show-more {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  height: 40px;
+  align-items: center;
+  border-radius: 16px;
+  padding: 16px;
+  margin-top: 16px;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  background-color: rgb(76, 83, 84);
+  box-shadow: 0 2px 0 inset;
+  cursor: pointer;
+  color: black;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-weight: 500;
+  margin-right: 6px;
+
+  transition: ease filter 0.1s;
+}
+
+.show-more:hover {
+  filter: brightness(92%);
+}
+
+.show-more:active {
+  filter: brightness(88%);
 }

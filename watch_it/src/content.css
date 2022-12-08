@@ -1,39 +1,111 @@
-.trending-movies {
-  display: flex;
-  flex-direction: row;
+.content {
+  display: grid;
+  grid-template:
+    "search search search"
+    "movie movie movie" / auto;
+
+  width: 80vw;
+}
+
+.trending-movies,
+.search-movies {
+  grid-area: movie;
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-template-rows: repeat(auto, 300px);
   gap: 10px;
   list-style: none;
-  overflow-y: auto;
+  float: left;
 }
-.film-card {
+.film-card,
+.film-card-search {
   display: flex;
   flex-direction: column;
-  width: fit-content;
-  height: 430px;
-  border: 2px solid slategrey;
+  width: 270px;
+  height: 375px;
+  border: 1px solid rgb(23, 32, 41);
+  box-shadow: 5px 10px;
+  border-radius: 16px;
+  background-color: rgb(116, 128, 129);
+  margin-bottom: 5px;
 }
 
 .film-card > img {
-  width: 220px;
-  height: 300px;
+  width: 240px;
+  height: 280px;
   padding: 5px;
+  align-self: center;
+}
+.film-card-search > img {
+  width: 230px;
+  height: 220px;
+  align-self: center;
+}
+.search {
+  grid-area: search;
+}
+
+.film-card-search > .title {
+  font-size: large;
+  height: 50px;
+  align-self: center;
+  align-self: center;
+  align-items: center;
 }
 .title {
+  display: flex;
+  font-size: large;
   height: 70px;
   align-self: center;
   padding: 5px;
-  height: 10%;
+  font-size: medium;
+  align-items: center;
+}
+.overview {
+  font-size: small;
+  font-weight: 500;
+  padding-left: 5px;
+  padding-right: 5px;
+  align-items: center;
+  padding-bottom: 0;
 }
 .reactions {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 10px;
-  height: fit-content;
+  height: 30px;
+  align-content: flex-end;
+  justify-items: flex-end;
+  cursor: pointer;
 }
 .favorite {
   color: red;
 }
 .check {
   color: green;
+}
+/* .movie-info {
+  z-index: -1;
+  
+} */
+
+/* .movie-info:hover {
+  z-index: 5;
+} */
+
+.movie-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  padding: 1rem;
+  max-height: 100%;
+  transform: translateY(101%);
+  transition: transform 0.3s ease-in;
+}
+
+.film-card:hover .movie-info {
+  transform: translateY(0);
 }

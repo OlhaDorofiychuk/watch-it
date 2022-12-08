@@ -7,8 +7,7 @@ export const LeftBar = () => {
   const [shortList, SetShortList] = useState(true);
   const [selectedGenre, setSelectedGenre] = useState([]);
 
-  let genreNamesOnly = [];
-  useEffect(() => {
+  function getGenreList() {
     fetch(
       "https://api.themoviedb.org/3/genre/movie/list?api_key=6b2aabd11953836de38f90530f997962&language=en-US"
     )
@@ -16,20 +15,38 @@ export const LeftBar = () => {
         return res.json();
       })
       .then((genresData) => {
-        genresData.genres.forEach((singleGenre) => {
-          genreNamesOnly.push(singleGenre.name);
-        });
-
-        setListOfGenres(genreNamesOnly);
+        setListOfGenres(genresData);
+        console.log("list of genres obj", listOfGenres);
       });
-  }, []);
-  console.log(selectedGenre);
+  }
 
+  let list = [];
+  let popular = [
+    { id: 28, name: "Action" },
+    { id: 35, name: "Comedy" },
+    { id: 80, name: "Crime" },
+    { id: 18, name: "Drama" },
+
+    { id: 14, name: "Fantasy" },
+    { id: 10749, name: "Romance" },
+  ];
+
+  if (shortList === true) {
+    list = popular;
+  } else list = listOfGenres.genres;
+  console.log("list of genres before map", listOfGenres);
+
+  function handleClick() {
+    SetShortList(!shortList);
+    getGenreList();
+  }
+  console.log("selected genre", selectedGenre);
+  console.log("list", list);
   return (
     <div className="leftBar">
       <h3> Film Genres</h3>
       <ul className="list-of-genres">
-        {listOfGenres.map((genre, index) => {
+        {list.map((genre, index) => {
           return (
             <GenreItem
               key={index}
@@ -40,6 +57,9 @@ export const LeftBar = () => {
           );
         })}
       </ul>
+      <button className="show-more" onClick={handleClick}>
+        Show More
+      </button>
     </div>
   );
 };

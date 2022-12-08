@@ -11,13 +11,14 @@ export const GenreItem = ({
   }
   function handleClick(e) {
     toggle();
-    const selected = e.target.innerText;
+    const selected = e.target.getAttribute("id");
+
+    console.log("selected", selected);
     if (selectedGenre.includes(selected)) {
       const indexToRemove = selectedGenre.indexOf(selected);
       if (indexToRemove > -1) {
         selectedGenre.splice(indexToRemove, 1);
       }
-
       setSelectedGenre(selectedGenre);
     } else {
       setSelectedGenre([...selectedGenre, selected]);
@@ -28,8 +29,9 @@ export const GenreItem = ({
       className={hightLight === true ? "hightLight" : ""}
       onClick={(e) => handleClick(e)}
       key={index}
+      id={genre.id}
     >
-      {genre}
+      {genre.name}
     </li>
   );
 };
