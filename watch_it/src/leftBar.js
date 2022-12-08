@@ -6,7 +6,7 @@ export const LeftBar = () => {
   const [listOfGenres, setListOfGenres] = useState([]);
   const [shortList, SetShortList] = useState(true);
   const [selectedGenre, setSelectedGenre] = useState([]);
-  let [hightLight, setHightLight] = useState(false);
+
   let genreNamesOnly = [];
   useEffect(() => {
     fetch(
@@ -20,20 +20,11 @@ export const LeftBar = () => {
           genreNamesOnly.push(singleGenre.name);
         });
 
-        // console.log("list g", listOfGenres);
-        // console.log("g data", genresData.genres);
         setListOfGenres(genreNamesOnly);
-        // console.log("list state", listOfGenres);
       });
   }, []);
   console.log(selectedGenre);
-  function toggle() {
-    if (hightLight === false) return (hightLight = true);
-    else {
-      hightLight = false;
-    }
-  }
-  console.log(hightLight);
+
   return (
     <div className="leftBar">
       <h3> Film Genres</h3>
@@ -45,7 +36,6 @@ export const LeftBar = () => {
               genre={genre}
               selectedGenre={selectedGenre}
               setSelectedGenre={setSelectedGenre}
-              toggle={toggle}
             />
           );
         })}
