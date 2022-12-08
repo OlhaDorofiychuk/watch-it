@@ -1,6 +1,16 @@
+import { useState } from "react";
 import "./content.css";
 import { Search } from "./search";
 export const Content = ({ trendingMovies }) => {
+  const [checkClicked, setCheckClicked] = useState(false);
+  const [favoriteClicked, setFavoriteClicked] = useState(false);
+
+  function toggle() {
+    setFavoriteClicked(!favoriteClicked);
+  }
+  function handleClick(e) {
+    toggle();
+  }
   return (
     <section className="content">
       <Search />
@@ -16,8 +26,17 @@ export const Content = ({ trendingMovies }) => {
                 />
               }
               <span className="reactions">
-                <span className="material-symbols-outlined">favorite</span>
-                <span className="material-symbols-outlined">check</span>
+                <span
+                  onClick={handleClick}
+                  className={
+                    favoriteClicked === true
+                      ? "material-symbols-outlined favorite"
+                      : "material-symbols-outlined"
+                  }
+                >
+                  favorite
+                </span>
+                <span className="material-symbols-outlined check">check</span>
                 <span className="material-symbols-outlined">close</span>
               </span>
             </li>

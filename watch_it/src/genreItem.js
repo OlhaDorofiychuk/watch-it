@@ -11,11 +11,17 @@ export const GenreItem = ({
   }
   function handleClick(e) {
     toggle();
-    console.log(hightLight);
     const selected = e.target.innerText;
-    if (selectedGenre.includes(selected)) return;
-    //Need to remove from the list on second click
-    setSelectedGenre([...selectedGenre, selected]);
+    if (selectedGenre.includes(selected)) {
+      const indexToRemove = selectedGenre.indexOf(selected);
+      if (indexToRemove > -1) {
+        selectedGenre.splice(indexToRemove, 1);
+      }
+
+      setSelectedGenre(selectedGenre);
+    } else {
+      setSelectedGenre([...selectedGenre, selected]);
+    }
   }
   return (
     <li

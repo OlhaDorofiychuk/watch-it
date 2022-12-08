@@ -3,21 +3,23 @@
   flex-direction: row;
   gap: 10px;
   list-style: none;
+  overflow-y: auto;
 }
 .film-card {
   display: flex;
   flex-direction: column;
   width: fit-content;
-  height: fit-content;
+  height: 430px;
   border: 2px solid slategrey;
 }
 
 .film-card > img {
-  width: 200px;
+  width: 220px;
   height: 300px;
   padding: 5px;
 }
 .title {
+  height: 70px;
   align-self: center;
   padding: 5px;
   height: 10%;
@@ -28,4 +30,10 @@
   justify-content: center;
   gap: 10px;
   height: fit-content;
+}
+.favorite {
+  color: red;
+}
+.check {
+  color: green;
 }
