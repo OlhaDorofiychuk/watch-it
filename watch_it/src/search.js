@@ -17,16 +17,14 @@ export const Search = ({ setSerchResult }) => {
         return res.json();
       })
       .then((resultData) => {
-        console.log("resultData.results", resultData.results);
         const resultArray = [];
         resultData.results.forEach((single) => {
           const movie = {};
           movie.title = single.title;
           movie.img = single.poster_path;
           movie.overview = single.overview;
-          console.log("movie", movie);
+
           resultArray.push(movie);
-          console.log("array", resultArray);
         });
 
         setSerchResult(resultArray);

@@ -6,6 +6,31 @@ export const LeftBar = () => {
   const [listOfGenres, setListOfGenres] = useState([]);
   const [shortList, SetShortList] = useState(true);
   const [selectedGenre, setSelectedGenre] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState([]);
+
+  function getMoviesByGenre() {
+    fetch(
+      `https://api.themoviedb.org/3discover/movie?api_key=6b2aabd11953836de38f90530f997962&with_genres=${selectedGenre}`
+    )
+      .then((res) => {
+        console.log("res", res);
+        return res.json();
+      })
+      .then((genreFilmsData) => {
+        const genreArray = [];
+        genreFilmsData.results.forEach((single) => {
+          const movieByGenre = {};
+          movieByGenre.title = single.title;
+          movieByGenre.img = single.poster_path;
+          movieByGenre.overview = single.overview;
+          console.log("movie", movieByGenre);
+          genreArray.push(movieByGenre);
+          console.log("array", genreArray);
+        });
+
+        setFilteredMovies(genreArray);
+      });
+  }
 
   function getGenreList() {
     fetch(
@@ -42,6 +67,7 @@ export const LeftBar = () => {
   }
   console.log("selected genre", selectedGenre);
   console.log("list", list);
+  console.log("filteredMovies", filteredMovies);
   return (
     <div className="leftBar">
       <h3> Film Genres</h3>
@@ -53,12 +79,13 @@ export const LeftBar = () => {
               genre={genre}
               selectedGenre={selectedGenre}
               setSelectedGenre={setSelectedGenre}
+              getMoviesByGenre={getMoviesByGenre}
             />
           );
         })}
       </ul>
       <button className="show-more" onClick={handleClick}>
-        Show More
+        <span className="button"> Show More</span>
       </button>
     </div>
   );

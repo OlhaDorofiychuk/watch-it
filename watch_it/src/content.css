@@ -28,6 +28,7 @@
   border-radius: 16px;
   background-color: rgb(116, 128, 129);
   margin-bottom: 5px;
+  position: relative;
 }
 
 .film-card > img {
@@ -85,27 +86,23 @@
 .check {
   color: green;
 }
-/* .movie-info {
-  z-index: -1;
-  
-} */
-
-/* .movie-info:hover {
-  z-index: 5;
-} */
 
 .movie-info {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #fff;
-  padding: 1rem;
-  max-height: 100%;
+  z-index: -1;
+  background-color: rgb(116, 128, 129);
+  padding: 5px;
+  max-height: min-content;
   transform: translateY(101%);
-  transition: transform 0.3s ease-in;
+  transition: transform 0.2s ease-in;
+  border-radius: 16px;
+  line-height: 15px;
 }
 
 .film-card:hover .movie-info {
   transform: translateY(0);
+  z-index: 2;
 }

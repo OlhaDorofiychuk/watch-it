@@ -4,16 +4,18 @@ export const GenreItem = ({
   genre,
   selectedGenre,
   setSelectedGenre,
+  getMoviesByGenre,
 }) => {
   let [hightLight, setHightLight] = useState(false);
   function toggle() {
     setHightLight(!hightLight);
   }
   function handleClick(e) {
+    getMoviesByGenre();
     toggle();
-    const selected = e.target.getAttribute("id");
+    const selected = Number(e.target.getAttribute("id"));
 
-    console.log("selected", selected);
+    console.log("selected", typeof selected);
     if (selectedGenre.includes(selected)) {
       const indexToRemove = selectedGenre.indexOf(selected);
       if (indexToRemove > -1) {
@@ -21,7 +23,7 @@ export const GenreItem = ({
       }
       setSelectedGenre(selectedGenre);
     } else {
-      setSelectedGenre([...selectedGenre, selected]);
+      setSelectedGenre([...selectedGenre, Number(selected)]);
     }
   }
   return (

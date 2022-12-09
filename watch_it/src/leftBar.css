@@ -3,9 +3,10 @@
   padding-top: 10px;
   box-shadow: 3px 6px;
   border-radius: 10px;
-  /* border: solid 2px slategrey; */
+  font-size: larger;
   cursor: pointer;
   padding: 5px;
+  margin-top: 20px;
   margin-right: 10px;
   padding-left: 15px;
 }
@@ -47,8 +48,10 @@ h3:hover {
   transition: ease filter 0.1s;
 }
 
-.show-more:hover {
+.show-more:hover,
+.button:hover {
   filter: brightness(92%);
+  font-weight: 600;
 }
 
 .show-more:active {
