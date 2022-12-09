@@ -1,0 +1,21 @@
+.movie {
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  width: 60vw;
+}
+h2 {
+  min-height: 70px;
+  font-weight: 700;
+}
+.age {
+  color: red;
+}
+img {
+  size: auto;
+}
+.info {
+  line-height: 1.5;
+  font-size: large;
+  height: fit-content;
+}

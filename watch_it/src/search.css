@@ -12,10 +12,14 @@
 .search:focus {
   color: black;
   font-weight: 900;
+  font-size: large;
 }
 .search:hover {
   cursor: pointer;
 }
 ::placeholder {
-  color: black;
+  color: rgb(31, 38, 45);
+}
+input:focus::placeholder {
+  color: transparent;
 }

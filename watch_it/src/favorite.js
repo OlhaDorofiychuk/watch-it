@@ -1,4 +1,5 @@
 import "./favorite.css";
+// import "./content.css";
 function clear() {
   const page = document.getElementsByClassName("container");
   page.innerHTML = "";
@@ -6,22 +7,22 @@ function clear() {
 clear();
 const resultArray = [];
 export const Favorite = () => {
-  fetch(
-    "https://api.themoviedb.org/3/trending/all/day?api_key=6b2aabd11953836de38f90530f997962"
-  )
-    .then((res) => {
-      return res.json();
-    })
-    .then((resultData) => {
-      resultData.results.forEach((single) => {
-        const movie = {};
-        movie.title = single.title;
-        movie.img = single.poster_path;
-        movie.overview = single.overview;
+  //   fetch(
+  //     "https://api.themoviedb.org/3/trending/all/day?api_key=6b2aabd11953836de38f90530f997962"
+  //   )
+  //     .then((res) => {
+  //       return res.json();
+  //     })
+  //     .then((resultData) => {
+  //       resultData.results.forEach((single) => {
+  //         const movie = {};
+  //         movie.title = single.title;
+  //         movie.img = single.poster_path;
+  //         movie.overview = single.overview;
 
-        resultArray.push(movie);
-      });
-    });
+  //         resultArray.push(movie);
+  //       });
+  //     });
 
   function handleClick(e) {
     const h2 = document.getElementById(e.target.index);

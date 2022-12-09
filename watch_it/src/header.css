@@ -1,0 +1,45 @@
+header {
+  display: flex;
+  font-family: Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  width: 700px;
+}
+.logo {
+  font-size: 98px;
+  font-weight: 900;
+  font-style: oblique;
+}
+.navigation ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  text-decoration: none;
+  justify-content: flex-end;
+  align-content: center;
+  padding: 25px;
+  position: fixed;
+  right: 100px;
+  box-shadow: 3px, 6px;
+  border-radius: 16px;
+  border: solid 1px;
+  height: 200px;
+  width: auto;
+  padding-bottom: 25px;
+}
+.navigation li {
+  display: flex;
+  flex-direction: column;
+  height: 30px;
+  justify-content: center;
+}
+.navigation a {
+  text-decoration: none;
+  justify-content: center;
+}
+.link-text {
+  font-display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  font-size: medium;
+  color: slategray;
+  text-decoration: none;
+}

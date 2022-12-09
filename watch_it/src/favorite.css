@@ -1,9 +1,11 @@
 .container-favorite {
+  display: flex;
+  /* max-width: ; */
   background-image: linear-gradient(to right, #7f8c8d, #000000);
   width: 100vw;
   height: 100vh;
 }
 h1 {
   display: flex;
-  align-self: center;
+  align-self: flex-start;
 }

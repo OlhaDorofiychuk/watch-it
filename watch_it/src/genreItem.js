@@ -15,12 +15,10 @@ export const GenreItem = ({
 
   //Handle click to capture selectedGenre state
   function handleClick(e) {
-    getMoviesByGenre();
     toggle();
     const selected = e.target.getAttribute("id");
-    // NUMBER
 
-    console.log("selected", typeof selected);
+    console.log("selected", selected);
     if (selectedGenre.includes(selected)) {
       const indexToRemove = selectedGenre.indexOf(selected);
       if (indexToRemove > -1) {
@@ -29,7 +27,6 @@ export const GenreItem = ({
       setSelectedGenre(selectedGenre);
     } else {
       setSelectedGenre([...selectedGenre, selected]);
-      // NUMBER
     }
   }
   return (

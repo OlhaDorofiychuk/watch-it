@@ -14,17 +14,12 @@ body {
 }
 
 header {
-  display: flex;
-  font-size: 98px;
-  font-family: Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-weight: 900;
-  font-style: oblique;
-  width: 700px;
+  grid-area: header;
 }
 .container {
   display: grid;
   grid-template:
-    "header header nav" 200px
+    "header header header" 200px
     "leftBar content content" auto
     "footer footer footer" auto/
     200px auto auto;
@@ -46,28 +41,3 @@ header {
   grid-area: content;
   padding-left: 30px;
 }
-.navigation ul {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  text-decoration: none;
-  justify-content: flex-end;
-  padding: 65px;
-  position: fixed;
-  right: 100px;
-  box-shadow: 3px, 6px;
-  border-radius: 16px;
-  border: solid 1px;
-}
-.navigation a {
-  font-display: flex;
-  flex-direction: row;
-  text-decoration: none;
-  color: silver;
-}
-.navigation {
-  grid-area: nav;
-}
-/* .navigation:hover {
-  transform: scale(0.5);
-} */

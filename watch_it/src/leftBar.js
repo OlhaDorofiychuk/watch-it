@@ -9,33 +9,32 @@ export const LeftBar = () => {
   const [filteredMovies, setFilteredMovies] = useState([]);
 
   // Get movies by genre
-  // useEffect(() => {
-  function getMoviesByGenre() {
+  useEffect(() => {
     const url = `https://api.themoviedb.org/3discover/movie?api_key=6b2aabd11953836de38f90530f997962&with_genres=${selectedGenre.join(
       "+"
     )}`;
-    console.log("url", url);
-    fetch(url)
-      .then((res) => {
-        console.log("res", res);
-        return res.json();
-      })
-      .then((genreFilmsData) => {
-        const genreArray = [];
-        genreFilmsData.results.forEach((single) => {
-          const movieByGenre = {};
-          movieByGenre.title = single.title;
-          movieByGenre.img = single.poster_path;
-          movieByGenre.overview = single.overview;
-          console.log("movie", movieByGenre);
-          genreArray.push(movieByGenre);
-          console.log("array", genreArray);
-        });
+    if (selectedGenre.length > 0) {
+      console.log("url", url);
+      fetch(url)
+        .then((res) => {
+          console.log("res", res);
+          return res.json();
+        })
+        .then((genreFilmsData) => {
+          const genreArray = [];
+          genreFilmsData.results.map((single) => {
+            const movieByGenre = {};
+            movieByGenre.title = single.title;
+            movieByGenre.img = single.poster_path;
+            movieByGenre.overview = single.overview;
+            console.log("movie", movieByGenre);
+            return genreArray.push(movieByGenre);
+          });
 
-        setFilteredMovies(genreArray);
-      });
-  }
-  // }, [selectedGenre]);
+          setFilteredMovies(genreArray);
+        });
+    }
+  }, [selectedGenre]);
 
   function getGenreList() {
     fetch(
@@ -63,7 +62,6 @@ export const LeftBar = () => {
   if (shortList === true) {
     list = popular;
   } else list = listOfGenres.genres;
-  console.log("list of genres before map", listOfGenres);
 
   function handleClick() {
     SetShortList(!shortList);
@@ -86,7 +84,6 @@ export const LeftBar = () => {
                 genre={genre}
                 selectedGenre={selectedGenre}
                 setSelectedGenre={setSelectedGenre}
-                getMoviesByGenre={getMoviesByGenre}
               />
             );
           })}

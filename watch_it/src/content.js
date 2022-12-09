@@ -1,8 +1,10 @@
 import { useState } from "react";
-import "./content.css";
+import { Link } from "react-router-dom";
 import { Search } from "./search";
+import { LeftBar } from "./leftBar";
+import "./content.css";
 
-export const Content = ({ trendingMovies }) => {
+export const Content = ({ trendingMovies, setSelectedMovie }) => {
   //   const [checkClicked, setCheckClicked] = useState(false);
   const [favoriteClicked, setFavoriteClicked] = useState(false);
   const [searchResult, setSerchResult] = useState([]);
@@ -21,19 +23,27 @@ export const Content = ({ trendingMovies }) => {
     } else toggleFavorite();
   }
   console.log("search Result", searchResult);
+
+  //   function handleMovieClick() {}
   //Trending return
   const trending = (
     <ul className="trending-movies">
       {trendingMovies.map((movie, index) => {
         return (
-          <li className="film-card" key={index}>
+          <li
+            onClick={setSelectedMovie(movie)}
+            className="film-card"
+            key={index}
+          >
             <h2 className="title">{movie.title}</h2>
-            {
-              <img
-                src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-                alt={movie.title}
-              />
-            }
+            <Link to={`/movie/${movie.id}}`}>
+              {
+                <img
+                  src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                  alt={movie.title}
+                />
+              }
+            </Link>
             <span className="movie-info">{movie.overview}</span>
             <span className="reactions">
               <span
@@ -54,6 +64,7 @@ export const Content = ({ trendingMovies }) => {
       })}
     </ul>
   );
+
   // Search return
   const searchMovies = (
     <ul className="search-movies">
@@ -90,9 +101,12 @@ export const Content = ({ trendingMovies }) => {
   );
 
   return (
-    <section className="content">
-      <Search setSerchResult={setSerchResult} />
-      {searchResult.length > 0 ? searchMovies : trending}
-    </section>
+    <>
+      <LeftBar />
+      <section className="content">
+        <Search setSerchResult={setSerchResult} searchResult={searchResult} />
+        {searchResult.length > 0 ? searchMovies : trending}
+      </section>
+    </>
   );
 };
