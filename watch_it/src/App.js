@@ -9,8 +9,8 @@ import { Favorite } from "./favorite";
 
 function App() {
   const [trendingMovies, setTrendingMovies] = useState([]);
-  // const [searchQuery, setSearchQuery] = useState("");
 
+  //  Loading trending movies for this week
   useEffect(() => {
     fetch(
       "https://api.themoviedb.org/3/trending/movie/day?api_key=6b2aabd11953836de38f90530f997962"
@@ -20,7 +20,6 @@ function App() {
       })
       .then((trendingMoviesData) => {
         setTrendingMovies(trendingMoviesData.results);
-        // console.log("trending", trendingMovies);
       });
   }, []);
   return (
@@ -50,9 +49,17 @@ function App() {
       <Routes>
         <Route path="/favorite" element={<Favorite />} />
         <Route path="/watched" element={<Favorite />} />
+        <Route
+          path="/"
+          element={
+            <Content
+              trendingMovies={trendingMovies}
+              setTrendingMovies={setTrendingMovies}
+            />
+          }
+        />
       </Routes>
 
-      <Content trendingMovies={trendingMovies} />
       <LeftBar />
     </div>
   );

@@ -13,6 +13,9 @@
   color: black;
   font-weight: 900;
 }
+.search:hover {
+  cursor: pointer;
+}
 ::placeholder {
   color: black;
 }

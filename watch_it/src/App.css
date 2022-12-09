@@ -10,6 +10,7 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  width: 100vw;
 }
 
 header {
@@ -27,7 +28,7 @@ header {
     "leftBar content content" auto
     "footer footer footer" auto/
     200px auto auto;
-  width: 97vw;
+  width: 100vw;
   overflow-y: auto;
   padding: 5px;
   position: relative;
@@ -67,3 +68,6 @@ header {
 .navigation {
   grid-area: nav;
 }
+/* .navigation:hover {
+  transform: scale(0.5);
+} */

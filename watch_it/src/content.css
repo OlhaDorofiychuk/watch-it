@@ -31,28 +31,18 @@
   position: relative;
 }
 
-.film-card > img {
+.film-card > img,
+.film-card-search > img {
   width: 240px;
   height: 280px;
   padding: 5px;
   align-self: center;
 }
-.film-card-search > img {
-  width: 230px;
-  height: 220px;
-  align-self: center;
-}
+
 .search {
   grid-area: search;
 }
 
-.film-card-search > .title {
-  font-size: large;
-  height: 50px;
-  align-self: center;
-  align-self: center;
-  align-items: center;
-}
 .title {
   display: flex;
   font-size: large;
@@ -61,14 +51,6 @@
   padding: 5px;
   font-size: medium;
   align-items: center;
-}
-.overview {
-  font-size: small;
-  font-weight: 500;
-  padding-left: 5px;
-  padding-right: 5px;
-  align-items: center;
-  padding-bottom: 0;
 }
 .reactions {
   display: flex;
@@ -102,7 +84,8 @@
   line-height: 15px;
 }
 
-.film-card:hover .movie-info {
+.film-card:hover .movie-info,
+.film-card-search .movie-info {
   transform: translateY(0);
   z-index: 2;
 }

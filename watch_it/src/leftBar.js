@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { GenreItem } from "./genreItem";
 import "./leftBar.css";
 
@@ -8,10 +8,14 @@ export const LeftBar = () => {
   const [selectedGenre, setSelectedGenre] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
 
+  // Get movies by genre
+  // useEffect(() => {
   function getMoviesByGenre() {
-    fetch(
-      `https://api.themoviedb.org/3discover/movie?api_key=6b2aabd11953836de38f90530f997962&with_genres=${selectedGenre}`
-    )
+    const url = `https://api.themoviedb.org/3discover/movie?api_key=6b2aabd11953836de38f90530f997962&with_genres=${selectedGenre.join(
+      "+"
+    )}`;
+    console.log("url", url);
+    fetch(url)
       .then((res) => {
         console.log("res", res);
         return res.json();
@@ -31,6 +35,7 @@ export const LeftBar = () => {
         setFilteredMovies(genreArray);
       });
   }
+  // }, [selectedGenre]);
 
   function getGenreList() {
     fetch(
@@ -51,7 +56,6 @@ export const LeftBar = () => {
     { id: 35, name: "Comedy" },
     { id: 80, name: "Crime" },
     { id: 18, name: "Drama" },
-
     { id: 14, name: "Fantasy" },
     { id: 10749, name: "Romance" },
   ];
@@ -68,21 +72,23 @@ export const LeftBar = () => {
   console.log("selected genre", selectedGenre);
   console.log("list", list);
   console.log("filteredMovies", filteredMovies);
+
   return (
     <div className="leftBar">
       <h3> Film Genres</h3>
       <ul className="list-of-genres">
-        {list.map((genre, index) => {
-          return (
-            <GenreItem
-              key={index}
-              genre={genre}
-              selectedGenre={selectedGenre}
-              setSelectedGenre={setSelectedGenre}
-              getMoviesByGenre={getMoviesByGenre}
-            />
-          );
-        })}
+        {list &&
+          list.map((genre, index) => {
+            return (
+              <GenreItem
+                key={index}
+                genre={genre}
+                selectedGenre={selectedGenre}
+                setSelectedGenre={setSelectedGenre}
+                getMoviesByGenre={getMoviesByGenre}
+              />
+            );
+          })}
       </ul>
       <button className="show-more" onClick={handleClick}>
         <span className="button"> Show More</span>

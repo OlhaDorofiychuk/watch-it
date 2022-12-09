@@ -3,24 +3,25 @@ import "./content.css";
 import { Search } from "./search";
 
 export const Content = ({ trendingMovies }) => {
-  const [checkClicked, setCheckClicked] = useState(false);
+  //   const [checkClicked, setCheckClicked] = useState(false);
   const [favoriteClicked, setFavoriteClicked] = useState(false);
   const [searchResult, setSerchResult] = useState([]);
 
+  // Togglefavorite click
   function toggleFavorite() {
     setFavoriteClicked(!favoriteClicked);
   }
   const favorite = [];
   function handleClick(e) {
-    const h2 = document.getElementById(e.target.index);
-    if (favoriteClicked && !favorite.includes(h2.innerText)) {
-      favorite.push(h2.innerText);
-      console.log("reaction", h2.innerText);
+    const li = document.getElementById(e.target.index);
+    if (favoriteClicked && !favorite.includes(li.innerHTML)) {
+      favorite.push(li.innerHTML);
+      console.log("reaction li.innerHTML", li.innerHTML);
       toggleFavorite();
     } else toggleFavorite();
   }
   console.log("search Result", searchResult);
-
+  //Trending return
   const trending = (
     <ul className="trending-movies">
       {trendingMovies.map((movie, index) => {
@@ -53,7 +54,7 @@ export const Content = ({ trendingMovies }) => {
       })}
     </ul>
   );
-
+  // Search return
   const searchMovies = (
     <ul className="search-movies">
       {searchResult.map((movie, index) => {
@@ -66,11 +67,8 @@ export const Content = ({ trendingMovies }) => {
                 alt={movie.title}
               />
             }
-            <h4 className="overview">
-              {movie.overview.length > 150
-                ? movie.overview.substring(0, 145) + " ..."
-                : movie.overview}
-            </h4>
+            <span className="movie-info">{movie.overview}</span>
+
             <span className="reactions">
               <span
                 onClick={handleClick}

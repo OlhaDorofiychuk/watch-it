@@ -7,13 +7,18 @@ export const GenreItem = ({
   getMoviesByGenre,
 }) => {
   let [hightLight, setHightLight] = useState(false);
+
+  //Chage class for the hightlight of the selection
   function toggle() {
     setHightLight(!hightLight);
   }
+
+  //Handle click to capture selectedGenre state
   function handleClick(e) {
     getMoviesByGenre();
     toggle();
-    const selected = Number(e.target.getAttribute("id"));
+    const selected = e.target.getAttribute("id");
+    // NUMBER
 
     console.log("selected", typeof selected);
     if (selectedGenre.includes(selected)) {
@@ -23,7 +28,8 @@ export const GenreItem = ({
       }
       setSelectedGenre(selectedGenre);
     } else {
-      setSelectedGenre([...selectedGenre, Number(selected)]);
+      setSelectedGenre([...selectedGenre, selected]);
+      // NUMBER
     }
   }
   return (
