@@ -72,6 +72,7 @@ export const LeftBar = () => {
   console.log("selected genre", selectedGenre);
   console.log("list", list);
   console.log("filteredMovies", filteredMovies);
+  const buttonText = document.getElementsByClassName(".button");
 
   return (
     <div className="leftBar">
@@ -91,7 +92,11 @@ export const LeftBar = () => {
           })}
       </ul>
       <button className="show-more" onClick={handleClick}>
-        <span className="button"> Show More</span>
+        <span className="button">
+          {shortList === true
+            ? (buttonText.innerText = "Show More")
+            : (buttonText.innerText = "Show Less")}
+        </span>
       </button>
     </div>
   );
