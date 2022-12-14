@@ -30,7 +30,7 @@ export const Content = ({ trendingMovies, setSelectedMovie }) => {
       {trendingMovies.map((movie, index) => {
         return (
           <li
-            onClick={setSelectedMovie({...movie, movie.id = movie.id.trim()})}
+            // onClick={setSelectedMovie({...movie, movie.id = movie.id.trim()})}
             className="film-card"
             key={index}
           >
