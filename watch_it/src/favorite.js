@@ -24,15 +24,6 @@ export const Favorite = () => {
   //       });
   //     });
 
-  function handleClick(e) {
-    const h2 = document.getElementById(e.target.index);
-    // if (favoriteClicked && !favorite.includes(h2.innerText)) {
-    //   favorite.push(h2.innerText);
-    console.log("reaction", h2.innerText);
-    //   toggleFavorite();
-    // } else toggleFavorite();
-  }
-
   return (
     <div className="container-favorite">
       <h1>Favorite List Here</h1>
@@ -50,13 +41,13 @@ export const Favorite = () => {
               <span className="movie-info">{movie.overview}</span>
               <span className="reactions">
                 <span
-                  onClick={handleClick}
-                  className={
-                    // favoriteClicked === true
-                    //   ? "material-symbols-outlined favorite"
-                    //   :
-                    "material-symbols-outlined"
-                  }
+                //   onClick={handleClick}
+                //   className={
+                // favoriteClicked === true
+                //   ? "material-symbols-outlined favorite"
+                //   :
+                // "material-symbols-outlined"
+                //   }
                 >
                   favorite
                 </span>

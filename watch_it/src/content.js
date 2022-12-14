@@ -24,14 +24,13 @@ export const Content = ({ trendingMovies, setSelectedMovie }) => {
   }
   console.log("search Result", searchResult);
 
-  //   function handleMovieClick() {}
   //Trending return
   const trending = (
     <ul className="trending-movies">
       {trendingMovies.map((movie, index) => {
         return (
           <li
-            onClick={setSelectedMovie(movie)}
+            onClick={setSelectedMovie({...movie, movie.id = movie.id.trim()})}
             className="film-card"
             key={index}
           >

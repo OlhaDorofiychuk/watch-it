@@ -4,7 +4,7 @@ import { Header } from "./header";
 import { Content } from "./content";
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
-import { Link, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Favorite } from "./favorite";
 import { Movie } from "./movie";
 
@@ -35,7 +35,7 @@ function App() {
         />
       </Helmet>
       <Header />
-      
+
       <Routes>
         <Route path="/favorite" element={<Favorite />} />
         <Route path="/watched" element={<Favorite />} />
