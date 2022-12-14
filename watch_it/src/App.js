@@ -11,6 +11,7 @@ function App() {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState({});
   const [theme, setTheme] = useState("grey");
+  const [favoriteClicked, setFavoriteClicked] = useState(false);
 
   //  Loading trending movies for this week
   useEffect(() => {
@@ -25,6 +26,7 @@ function App() {
       });
   }, []);
 
+  // Toggle color theme state
   const toggleTheme = () => {
     if (theme === "grey") {
       setTheme("blue");
@@ -33,6 +35,20 @@ function App() {
     }
   };
   console.log("selectedMovie", selectedMovie);
+
+  // Togglefavorite click
+  function toggleFavorite() {
+    setFavoriteClicked(!favoriteClicked);
+  }
+  const favorite = [];
+  function handleClick(e) {
+    const li = document.getElementById(e.target.index);
+    if (favoriteClicked && !favorite.includes(li.innerHTML)) {
+      favorite.push(li.innerHTML);
+      console.log("reaction li.innerHTML", li.innerHTML);
+      toggleFavorite();
+    } else toggleFavorite();
+  }
   return (
     <div className={`container ${theme}`}>
       <Helmet>
@@ -56,7 +72,15 @@ function App() {
             />
           }
         />
-        <Route path="/movie/:id" element={<Movie />} />
+        <Route
+          path="/movie/:id"
+          element={
+            <Movie
+              favoriteClicked={favoriteClicked}
+              handleClick={handleClick}
+            />
+          }
+        />
       </Routes>
     </div>
   );

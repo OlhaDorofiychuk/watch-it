@@ -1,4 +1,4 @@
-export const Movie = ({ selectedMovie }) => {
+export const Movie = ({ selectedMovie, favoriteClicked, handleClick }) => {
   return {
     if(selectedMovie) {
       <div className="movie">
@@ -10,6 +10,20 @@ export const Movie = ({ selectedMovie }) => {
           src={`https://image.tmdb.org/t/p/w200${selectedMovie.poster_path}`}
           alt={selectedMovie.title}
         />
+        <span className="reactions">
+          <span
+            onClick={handleClick}
+            className={
+              favoriteClicked === true
+                ? "material-symbols-outlined favorite"
+                : "material-symbols-outlined"
+            }
+          >
+            favorite
+          </span>
+          <span className="material-symbols-outlined check">check</span>
+          <span className="material-symbols-outlined">close</span>
+        </span>
         <span className="info">Overview: {selectedMovie.overview} </span>
         <span className="genreId">Genre ID: {selectedMovie.genre_ids}</span>
         <span className="score">

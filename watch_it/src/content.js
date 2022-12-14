@@ -6,22 +6,9 @@ import "./content.css";
 
 export const Content = ({ trendingMovies, setSelectedMovie }) => {
   //   const [checkClicked, setCheckClicked] = useState(false);
-  const [favoriteClicked, setFavoriteClicked] = useState(false);
+
   const [searchResult, setSerchResult] = useState([]);
 
-  // Togglefavorite click
-  function toggleFavorite() {
-    setFavoriteClicked(!favoriteClicked);
-  }
-  const favorite = [];
-  function handleClick(e) {
-    const li = document.getElementById(e.target.index);
-    if (favoriteClicked && !favorite.includes(li.innerHTML)) {
-      favorite.push(li.innerHTML);
-      console.log("reaction li.innerHTML", li.innerHTML);
-      toggleFavorite();
-    } else toggleFavorite();
-  }
   console.log("search Result", searchResult);
 
   //Trending return
@@ -45,16 +32,7 @@ export const Content = ({ trendingMovies, setSelectedMovie }) => {
             </Link>
             <span className="movie-info">{movie.overview}</span>
             <span className="reactions">
-              <span
-                onClick={handleClick}
-                className={
-                  favoriteClicked === true
-                    ? "material-symbols-outlined favorite"
-                    : "material-symbols-outlined"
-                }
-              >
-                favorite
-              </span>
+              <span className="material-symbols-outlined">favorite</span>
               <span className="material-symbols-outlined check">check</span>
               <span className="material-symbols-outlined">close</span>
             </span>
@@ -80,16 +58,7 @@ export const Content = ({ trendingMovies, setSelectedMovie }) => {
             <span className="movie-info">{movie.overview}</span>
 
             <span className="reactions">
-              <span
-                onClick={handleClick}
-                className={
-                  favoriteClicked === true
-                    ? "material-symbols-outlined favorite"
-                    : "material-symbols-outlined"
-                }
-              >
-                favorite
-              </span>
+              <span className="material-symbols-outlined">favorite</span>
               <span className="material-symbols-outlined check">check</span>
               <span className="material-symbols-outlined">close</span>
             </span>
