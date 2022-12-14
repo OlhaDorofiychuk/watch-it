@@ -1,4 +1,3 @@
-import { LeftBar } from "./leftBar";
 import "./App.css";
 import { Header } from "./header";
 import { Content } from "./content";
@@ -11,6 +10,7 @@ import { Movie } from "./movie";
 function App() {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState({});
+  const [theme, setTheme] = useState("grey");
 
   //  Loading trending movies for this week
   useEffect(() => {
@@ -25,16 +25,23 @@ function App() {
       });
   }, []);
 
+  const toggleTheme = () => {
+    if (theme === "grey") {
+      setTheme("blue");
+    } else {
+      setTheme("grey");
+    }
+  };
   console.log("selectedMovie", selectedMovie);
   return (
-    <div className="container">
+    <div className={`container ${theme}`}>
       <Helmet>
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         />
       </Helmet>
-      <Header />
+      <Header theme={theme} toggleTheme={toggleTheme} />
 
       <Routes>
         <Route path="/favorite" element={<Favorite />} />

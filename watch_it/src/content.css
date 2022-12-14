@@ -26,11 +26,13 @@
   border: 1px solid rgb(23, 32, 41);
   box-shadow: 5px 10px;
   border-radius: 16px;
-  background-color: rgb(116, 128, 129);
   margin-bottom: 5px;
   position: relative;
 }
-
+.grey .film-card,
+.film-card-search {
+  background-color: rgb(116, 128, 129);
+}
 .film-card > img,
 a,
 .film-card-search > img,
@@ -80,7 +82,6 @@ a {
   right: 0;
   bottom: 0;
   z-index: -1;
-  background-color: rgb(116, 128, 129);
   padding: 5px;
   max-height: min-content;
   transform: translateY(101%);
@@ -89,6 +90,12 @@ a {
   line-height: 15px;
 }
 
+.grey .movie-info {
+  background-color: rgb(116, 128, 129);
+}
+.blue .movie-info {
+  background-image: linear-gradient(to right, aqua, #0898e5);
+}
 .film-card:hover .movie-info,
 .film-card-search:hover .movie-info {
   transform: translateY(0);

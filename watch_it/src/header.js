@@ -1,6 +1,6 @@
 import "./header.css";
 import { Link } from "react-router-dom";
-export const Header = () => {
+export const Header = ({ theme, toggleTheme }) => {
   return (
     <>
       <header>
@@ -8,6 +8,13 @@ export const Header = () => {
         <>
           <nav className="navigation">
             <ul>
+              <button onClick={toggleTheme}>
+                {theme === "grey" ? (
+                  <span>change to blue</span>
+                ) : (
+                  <span>change to grey</span>
+                )}
+              </button>
               <li>
                 <Link to="/">
                   🏡<span className="link-text">Home</span>
