@@ -32,7 +32,7 @@ header {
   background-image: linear-gradient(to right, #7f8c8d, #000000);
 }
 .blue {
-  background-image: linear-gradient(to right, aqua, #0898e5);
+  background-image: linear-gradient(to right, rgb(0, 255, 255), #0898e5);
 }
 .leftBar {
   grid-area: leftBar;

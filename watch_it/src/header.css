@@ -40,6 +40,37 @@ header {
   flex-direction: row;
   text-decoration: none;
   font-size: medium;
-  color: slategray;
   text-decoration: none;
+  font-weight: 600;
+}
+.grey .link-text {
+  color: slategray;
+}
+.blue .link-text {
+  color: rgb(0, 5, 10);
+}
+.color-button {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  height: 40px;
+  align-items: center;
+  border-radius: 16px;
+  padding: 16px;
+  margin-top: 16px;
+  border: 1px solid rgba(7, 90, 213, 0.15);
+  box-shadow: 0 2px 0 inset;
+  cursor: pointer;
+  margin-right: 6px;
+  background-color: transparent;
+  transition: ease filter 0.1s;
+  align-self: center;
+  font-weight: 600;
+}
+.grey .color-button {
+  color: slategray;
+}
+.color-button:hover {
+  font-weight: 700;
+  filter: brightness(120%);
 }

@@ -33,6 +33,14 @@
 .film-card-search {
   background-color: rgb(116, 128, 129);
 }
+.blue .film-card,
+.film-card-search {
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 255, 255, 0.722),
+    #0898e5c4
+  );
+}
 .film-card > img,
 a,
 .film-card-search > img,
@@ -81,7 +89,7 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: -1;
+  z-index: -2;
   padding: 5px;
   max-height: min-content;
   transform: translateY(101%);
@@ -94,7 +102,7 @@ a {
   background-color: rgb(116, 128, 129);
 }
 .blue .movie-info {
-  background-image: linear-gradient(to right, aqua, #0898e5);
+  background-image: linear-gradient(to right, rgb(0, 255, 255), #0898e5);
 }
 .film-card:hover .movie-info,
 .film-card-search:hover .movie-info {

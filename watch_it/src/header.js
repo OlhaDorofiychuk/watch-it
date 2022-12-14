@@ -8,13 +8,6 @@ export const Header = ({ theme, toggleTheme }) => {
         <>
           <nav className="navigation">
             <ul>
-              <button onClick={toggleTheme}>
-                {theme === "grey" ? (
-                  <span>change to blue</span>
-                ) : (
-                  <span>change to grey</span>
-                )}
-              </button>
               <li>
                 <Link to="/">
                   🏡<span className="link-text">Home</span>
@@ -30,6 +23,13 @@ export const Header = ({ theme, toggleTheme }) => {
                   <span className="link-text">List Of Watched Already</span>
                 </Link>
               </li>
+              <button className="color-button" onClick={toggleTheme}>
+                {theme === "grey" ? (
+                  <span>Change theme to blue</span>
+                ) : (
+                  <span>Change theme to grey</span>
+                )}
+              </button>
             </ul>
           </nav>
         </>
