@@ -22,7 +22,7 @@ export const Content = ({ trendingMovies, setSelectedMovie }) => {
             key={index}
           >
             <h2 className="title">{movie.title}</h2>
-            <Link to={`/movie/${movie.id}}`}>
+            <Link to={`/movie/${movie.id}`} onClick={setSelectedMovie(movie)}>
               {
                 <img
                   src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
@@ -49,12 +49,14 @@ export const Content = ({ trendingMovies, setSelectedMovie }) => {
         return (
           <li className="film-card-search" key={index}>
             <h2 className="title">{movie.title}</h2>
+            <Link to={`/movie/${movie.id}`} onClick={setSelectedMovie(movie)}>
             {
               <img
                 src={`https://image.tmdb.org/t/p/w200${movie.img}`}
                 alt={movie.title}
               />
             }
+</Link>
             <span className="movie-info">{movie.overview}</span>
 
             <span className="reactions">

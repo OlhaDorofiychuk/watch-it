@@ -78,10 +78,12 @@ function App() {
             <Movie
               favoriteClicked={favoriteClicked}
               handleClick={handleClick}
+              selectedMovie={selectedMovie}
             />
           }
         />
       </Routes>
+      <footer>&copy; React Project 2022 Created by O.Dorofiychuk</footer>
     </div>
   );
 }

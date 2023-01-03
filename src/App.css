@@ -7,10 +7,8 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 body {
-  min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  width: 100vw;
 }
 
 header {
@@ -21,10 +19,9 @@ header {
   grid-template:
     "header header header" 200px
     "leftBar content content" auto
-    "footer footer footer" auto/
+    "footer footer footer" 200px/
     200px auto auto;
-  width: 100vw;
-  overflow-y: auto;
+  width: 100%;
   padding: 5px;
   position: relative;
 }
@@ -44,4 +41,9 @@ header {
 .content {
   grid-area: content;
   padding-left: 30px;
+}
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }

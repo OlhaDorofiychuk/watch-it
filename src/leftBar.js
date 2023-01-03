@@ -10,12 +10,13 @@ export const LeftBar = () => {
 
   // Get movies by genre
   useEffect(() => {
-    const url = `https://api.themoviedb.org/3discover/movie?api_key=6b2aabd11953836de38f90530f997962&with_genres=${selectedGenre.join(
-      "+"
-    )}`;
     if (selectedGenre.length > 0) {
-      console.log("url", url);
-      fetch(url)
+      console.log("url", `https://api.themoviedb.org/3discover/movie?api_key=6b2aabd11953836de38f90530f997962&with_genres=${selectedGenre.join(
+        "+"
+      )}`);
+      fetch(`https://api.themoviedb.org/3discover/movie?api_key=6b2aabd11953836de38f90530f997962&with_genres=${selectedGenre.join(
+        "+"
+      )}`)
         .then((res) => {
           console.log("res", res);
           return res.json();

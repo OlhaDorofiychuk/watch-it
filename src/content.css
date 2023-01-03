@@ -4,14 +4,14 @@
     "search search search"
     "movie movie movie" / auto;
 
-  width: 80vw;
+  /* width: 80vw; */
 }
 
 .trending-movies,
 .search-movies {
   grid-area: movie;
   display: grid;
-  grid-template-columns: repeat(5, auto);
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   grid-template-rows: repeat(auto, 300px);
   gap: 10px;
   list-style: none;
@@ -107,6 +107,6 @@ a {
 .film-card:hover .movie-info,
 .film-card-search:hover .movie-info {
   transform: translateY(0);
-  animation: fadeIn 5s;
+  animation: fadeIn 1s;
   z-index: 2;
 }
