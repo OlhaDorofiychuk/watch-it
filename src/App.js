@@ -9,7 +9,7 @@ import { Movie } from "./movie";
 
 function App() {
   const [trendingMovies, setTrendingMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState({});
+  const [selectedMovie, setSelectedMovie] = useState([]);
   const [theme, setTheme] = useState("grey");
   const [favoriteClicked, setFavoriteClicked] = useState(false);
 
@@ -72,7 +72,7 @@ function App() {
             />
           }
         />
-        <Route
+        {/* <Route
           path="/movie/:id"
           element={
             <Movie
@@ -81,7 +81,7 @@ function App() {
               selectedMovie={selectedMovie}
             />
           }
-        />
+        /> */}
       </Routes>
       <footer>&copy; React Project 2022 Created by O.Dorofiychuk</footer>
     </div>
