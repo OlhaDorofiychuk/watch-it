@@ -60,10 +60,8 @@ function App() {
       <Header theme={theme} toggleTheme={toggleTheme} />
 
       <Routes>
-        <Route path="/favorite" element={<Favorite />} />
-        <Route path="/watched" element={<Favorite />} />
-        <Route
-          path=""
+      <Route
+          path="/"
           element={
             <Content
               trendingMovies={trendingMovies}
@@ -72,6 +70,9 @@ function App() {
             />
           }
         />
+        <Route path="/favorite" element={<Favorite />} />
+        <Route path="/watched" element={<Favorite />} />
+       
         {/* <Route
           path="/movie/:id"
           element={
