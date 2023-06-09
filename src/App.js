@@ -61,7 +61,7 @@ function App() {
 
       <Routes>
       <Route
-          path="/"
+          path="/watch-it/"
           element={
             <Content
               trendingMovies={trendingMovies}
@@ -70,8 +70,8 @@ function App() {
             />
           }
         />
-        <Route path="/favorite" element={<Favorite />} />
-        <Route path="/watched" element={<Favorite />} />
+        <Route path="/watch-it/favorite" element={<Favorite />} />
+        <Route path="/watch-it/watched" element={<Favorite />} />
        
         {/* <Route
           path="/movie/:id"

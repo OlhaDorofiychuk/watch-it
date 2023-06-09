@@ -9,17 +9,17 @@ export const Header = ({ theme, toggleTheme }) => {
           <nav className="navigation">
             <ul>
               <li>
-                <Link to="/">
+                <Link to="/watch-it/">
                   🏡<span className="link-text">Home</span>
                 </Link>
               </li>
               <li>
-                <Link to="/favorite">
+                <Link to="/watch-it/favorite">
                   <span className="link-text">List Of Favorite Movies</span>
                 </Link>
               </li>
               <li>
-                <Link to="/watched">
+                <Link to="/watch-it/watched">
                   <span className="link-text">List Of Watched Already</span>
                 </Link>
               </li>
