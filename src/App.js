@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Route, Routes } from "react-router-dom";
 import { Favorite } from "./favorite";
-import { Movie } from "./movie";
+// import { Movie } from "./movie";
 
 function App() {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -63,7 +63,7 @@ function App() {
         <Route path="/favorite" element={<Favorite />} />
         <Route path="/watched" element={<Favorite />} />
         <Route
-          path="/"
+          path=""
           element={
             <Content
               trendingMovies={trendingMovies}
