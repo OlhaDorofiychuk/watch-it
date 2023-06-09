@@ -14,12 +14,12 @@ export const Header = ({ theme, toggleTheme }) => {
                 </Link>
               </li>
               <li>
-                <Link to="/watch-it/favorite">
+                <Link to="/watch-it/favorite/">
                   <span className="link-text">List Of Favorite Movies</span>
                 </Link>
               </li>
               <li>
-                <Link to="/watch-it/watched">
+                <Link to="/watch-it/watched/">
                   <span className="link-text">List Of Watched Already</span>
                 </Link>
               </li>
